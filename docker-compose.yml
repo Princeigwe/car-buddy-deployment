@@ -1,7 +1,9 @@
-version: '3.7'
+version: '3'
 
 services:
   car-buddy:
     image: "princeigwe/car-buddy"
     ports:
       - "80:3000"
+    env_file:
+      - .env

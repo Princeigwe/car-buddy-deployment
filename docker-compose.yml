@@ -1,3 +1,4 @@
+# docker-compose for car-buddy deployment to AWS ElasticBeanstalk
 version: '3'
 
 services:
@@ -7,3 +8,18 @@ services:
       - "80:3000"
     env_file:
       - .env
+    # these variables are optional, and can be defined in ElasticBeanstalk
+    environment:
+      MONGO_DATABASE_URI: ${MONGO_DATABASE_URI}
+      RDS_HOSTNAME: ${RDS_HOSTNAME}
+      RDS_PORT: ${RDS_PORT}
+      RDS_DB_NAME: ${RDS_DB_NAME}
+      RDS_USERNAME: ${RDS_USERNAME}
+      RDS_PASSWORD: ${RDS_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      GMAIL_USER: ${GMAIL_USER}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+      OAUTH_CLIENT_ID: ${OAUTH_CLIENT_ID}
+      OAUTH_CLIENT_SECRET: ${OAUTH_CLIENT_SECRET}
+      OAUTH_REFRESH_TOKEN: ${OAUTH_REFRESH_TOKEN}
+      SESSION_SECRET: ${SESSION_SECRET}
